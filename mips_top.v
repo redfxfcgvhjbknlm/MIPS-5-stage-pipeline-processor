@@ -68,7 +68,7 @@ module mips_top (
     // Stage instantiations
     // -------------------------------------------------------------------------
 
-    assign pcsrc        = exmem_branch & exmem_zero;
+    assign pcsrc = (exmem_beq & exmem_zero) | (exmem_bne & ~exmem_zero);
     assign pc_branch    = exmem_branch_target;
     assign pc_jump      = exmem_jump_target;
     assign wb_data      = memwb_memtoreg ? memwb_memdata : memwb_aluresult;
