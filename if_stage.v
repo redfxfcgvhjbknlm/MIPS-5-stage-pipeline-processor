@@ -6,6 +6,7 @@
 // =============================================================================
 
 module if_stage (
+    input  wire        ifid_write,
     input  wire        clk,
     input  wire        reset,
     input  wire        pc_write,       // from hazard unit (stall when 0)
@@ -62,6 +63,4 @@ module if_stage (
     // Expose ifid_write so the always block can use it
     // (driven by hazard unit, passed down from top)
     // Note: in a real instantiation this would be a port; included here for clarity
-    wire ifid_write; // Must be connected from top – placeholder shown
-
 endmodule
